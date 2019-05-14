@@ -1,0 +1,30 @@
+<div class="container">    
+  <div class="row"> 
+      <div class="card card-signin my-5">            
+        <div class="card-body">
+          <h5 class="card-title text-center">User Login</h5>
+          <form class="form-signin">
+            <div class="form-group">
+                <label for="inputEmail">User Name</label>
+              <input type="text" id="inputEmail" name="inputEmail" [(ngModel)]="UserName" class="form-control"
+                placeholder="User Name" #username="ngModel"/>            
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+              <input type="password" id="inputPassword" name="inputPassword" class="form-control" [(ngModel)]="Password"
+                placeholder="Password" #password="ngModel" />            
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)='logIn()' type="submit">Login</button>
+            <div class="form-group">
+                <div>
+                    <span style="color: #a94442">
+                        {{validationMessage}}
+                    </span>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

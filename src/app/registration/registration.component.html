@@ -1,0 +1,54 @@
+<div class="card">
+<div class="container">
+  <div class="row">       
+    <div class="col-md-6 offset-md-3">
+            
+        <h3>User Registration</h3>
+     <a href="home">Home1</a><br/>
+     <a routerLink="/home">Home2</a><br/>
+     <a routerLink="/home" routerLinkActive>Home3</a>
+        <form name="addeditproduct" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+            <div class="form-group">
+              <label for="userName" > User Name  </label>
+              <input type="text"  class="form-control" [(ngModel)]="userName" name="username"
+                   #UserName="ngModel" required minlength="4" maxlength="20"/>
+               <div *ngIf="f.submitted && UserName.invalid" class="invalid">
+                  <div *ngIf="UserName.errors.required">User Name is required</div>
+               </div>
+            </div>
+            <div class="form-group">
+              <label for="Emailid"> Email</label>
+              <input type="text"  class="form-control" [(ngModel)]="emailId" name="email"
+              #Email="ngModel" required minlength="4" maxlength="20" email/>
+             
+                <div *ngIf="f.submitted && Email.invalid" class="invalid">
+                        <div *ngIf="Email.errors.required">Email ID is required</div>
+                </div>
+                <div *ngIf="f.submitted && Email.invalid" class="invalid">
+                  <div *ngIf="Email.errors.email">Invalid email address</div>
+          </div>
+          </div>
+            <div class="form-group">
+                <label for="firstName"> First Name</label>
+                <input type="text"  class="form-control" [(ngModel)]="firstName" name="firstname"
+                #FirstName="ngModel" required minlength="4" maxlength="20"/>
+               
+                  <div *ngIf="f.submitted && FirstName.invalid" class="invalid">
+                          <div *ngIf="FirstName.errors.required">First Name is required</div>
+                  </div>
+                  <div *ngIf="f.submitted && FirstName.invalid" class="invalid">
+                    <div *ngIf="FirstName.errors.minlength">Name must be at least 4 characters long.</div>
+            </div>
+            </div>
+            <div class="form-group">
+                <button  class="btn btn-success pull-left" (click)="backToHome($event)"><-Back to home</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button  class="btn btn-secondary" (click)="clearForm(f)">Clear</button> &nbsp;&nbsp;
+                
+            </div>
+         
+        </form>
+    </div>
+  </div>
+</div>
+</div>
